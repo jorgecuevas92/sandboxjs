@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="manifest" href="/assets/manifest.json">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="theme-color" content="#A95707">
+    <meta name="description" content="Sistema de Administración para Rassini">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Test</title>
+    <link rel="stylesheet" href="/stylesheets/style.min.css" media="screen" title="no title">
+    <script type="text/javascript" async>
+        (function(document,navigator,standalone) {
+          // prevents links from apps from oppening in mobile safari
+          // this javascript must be the first script in your <head>
+          if ((standalone in navigator) && navigator[standalone]) {
+            var curnode, location=document.location, stop=/^(a|html)$/i;
+            document.addEventListener('click', function(e) {
+              curnode=e.target;
+              while (!(stop).test(curnode.nodeName)) {
+                curnode=curnode.parentNode;
+              }
+              // Condidions to do this only on links to your own app
+              // if you want all links, use if('href' in curnode) instead.
+              if(
+                'href' in curnode && // is a link
+                (chref=curnode.href).replace(location.href,'').indexOf('#') && // is not an anchor
+                ( !(/^[a-z\+\.\-]+:/i).test(chref) ||                       // either does not have a proper scheme (relative links)
+                  chref.indexOf(location.protocol+'//'+location.host)===0 ) // or is in the same protocol and domain
+              ) {
+                e.preventDefault();
+                location.href = curnode.href;
+              }
+            },false);
+          }
+        })(document,window.navigator,'standalone');
+    </script>
+    <!-- iOS Configuration -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="manifest" href="/assets/manifest.json">
+    <link rel="apple-touch-icon" href="/assets/logo-168.png">
+    <link rel="apple-touch-startup-image" href="/assets/logo-192.png">
+  </head>
+
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <div class="mdl-layout-title">
+            Material Test
+          </div>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title">
+                Test
+              </div>
+              
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
