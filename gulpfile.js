@@ -25,3 +25,14 @@ gulp.task('style-test', function() {
     .pipe(concat('style-test.min.css'))
     .pipe(gulp.dest('./public/stylesheets/'))
 });
+
+gulp.task('g-sw', function(callback) {
+  var path = require('path');
+  var swPrecache = require('sw-precache');
+  var rootDir = 'public';
+
+  swPrecache.write(`${rootDir}/service-worker.js`, {
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
+    stripPrefix: rootDir
+  }, callback);
+});
